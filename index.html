@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beatriz — Lash Designer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header>
+  <div class="header-info">
+    <h1>Beatriz Lacerda</h1>
+    <p>Lash Designer</p>
+  </div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#portifolio">Portifólio</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+  <!-- SEÇÃO SOBRE -->
+  <section id="sobre">
+  <div class="sobre-container">
+
+    <div class="sobre-foto">
+      <img src="img/Beatriz.png" alt="Beatriz Lacerda" />
+    </div>
+
+    <div class="sobre-texto">
+      <h2>Sobre mim</h2>
+      <p class="sobre-destaque">
+        Olá! Sou Beatriz Lacerda, lash designer apaixonada por realçar a beleza natural de cada cliente. 
+        Com anos de experiência e técnica apurada, ofereço um atendimento personalizado e exclusivo.
+        Especializada em diversas técnicas de alongamento de cílios, meu objetivo é que cada cliente 
+        saia se sentindo ainda mais bonita e confiante.
+        Atendo com todo cuidado, higiene e carinho que você merece. 
+        Agende seu horário e venha se transformar! 💕
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- SEÇÃO SERVIÇOS -->
+  <section id="servicos">
+  <h2>Serviços</h2>
+  <div class="cards-servicos">
+
+    <div class="card">
+      <img src="img/brasileiro.jpeg" alt="Volume Brasileiro" />
+      <h3>Volume Brasileiro</h3>
+      <p>Técnica clássica que alonga e encurva os fios naturalmente, realçando o olhar com leveza.</p>
+      <span class="preco">R$ 115,00</span>
+    </div>
+
+    <div class="card">
+      <img src="img/egipcio.jpeg" alt="Volume Egípcio" />
+      <h3>Volume Egípcio</h3>
+      <p>Aplicação que define e intensifica o olhar com um efeito marcante e alongado.</p>
+      <span class="preco">R$ 140,00</span>
+    </div>
+
+    <div class="card">
+      <img src="img/hibrido.jpeg" alt="Volume Híbrido" />
+      <h3>Volume Híbrido</h3>
+      <p>Mix entre fios clássicos e volume, resultado natural com um toque de charme a mais.</p>
+      <span class="preco">R$ 150,00</span>
+    </div>
+
+    <div class="card">
+      <img src="img/fox.jpeg" alt="Volume Fox" />
+      <h3>Volume Foxy</h3>
+      <p>Eleva o canto externo dos olhos, criando um efeito sedutor e felino.</p>
+      <span class="preco">R$ 160,00</span>
+    </div>
+
+    <div class="card">
+      <img src="img/russo.jpeg" alt="Volume Russo" />
+      <h3>Volume Russo</h3>
+      <p>Fios ultrafinos aplicados em leque, resultado dramático e com muito volume.</p>
+      <span class="preco">R$ 180,00</span>
+    </div>
+
+    <div class="card">
+      <img src="img/marrom.jpeg" alt="Volume 4D Marrom" />
+      <h3>Volume 4D Marrom</h3>
+      <p>Técnica avançada com fios marrons para um efeito mais natural e sofisticado.</p>
+      <span class="preco">R$ 140,00</span>
+    </div>
+
+  </div>
+</section>
+
+  </div>
+</section>
+
+  </div>
+</section>
+
+  <!-- SEÇÃO PORTFÓLIO -->
+  
+<section id="portfolio">
+  <h2>Portifólio</h2>
+
+  <!-- CARROSSEL DE CATEGORIAS -->
+  <div class="grade-portfolio">
+
+      <div class="card-categoria" onclick="abrirGaleria('brasileiro')">
+        <img src="img/brasileiro.jpeg" alt="Volume Brasileiro" />
+        <span class="nome-foto">Volume Brasileiro</span>
+      </div>
+
+      <div class="card-categoria" onclick="abrirGaleria('egipcio')">
+        <img src="img/egipcio.jpeg" alt="Volume Egípcio" />
+        <span class="nome-foto">Volume Egípcio</span>
+      </div>
+
+      <div class="card-categoria" onclick="abrirGaleria('hibrido')">
+        <img src="img/hibrido.jpeg" alt="Volume Híbrido" />
+        <span class="nome-foto">Volume Híbrido</span>
+      </div>
+
+      <div class="card-categoria" onclick="abrirGaleria('fox')">
+        <img src="img/fox.jpeg" alt="Volume Fox" />
+        <span class="nome-foto">Volume Fox</span>
+      </div>
+
+      <div class="card-categoria" onclick="abrirGaleria('russo')">
+        <img src="img/russo.jpeg" alt="Volume Russo" />
+        <span class="nome-foto">Volume Russo</span>
+      </div>
+
+      <div class="card-categoria" onclick="abrirGaleria('4d')">
+        <img src="img/marrom.jpeg" alt="Volume 4D Marrom" />
+        <span class="nome-foto">Volume 4D Marrom</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GALERIA DESLIZÁVEL -->
+  <div class="galeria-overlay" id="galeria-overlay">
+    <div class="galeria-modal">
+
+      <div class="galeria-header">
+        <h3 id="galeria-titulo"></h3>
+        <button class="fechar-galeria" onclick="fecharGaleria()">✕</button>
+      </div>
+
+      <div class="galeria-slide-wrapper">
+        <button class="slide-btn prev" onclick="mudarSlide(-1)">&#8249;</button>
+        <div class="galeria-slide">
+          <img id="slide-img" src="" alt="Foto" />
+        </div>
+        <button class="slide-btn next" onclick="mudarSlide(1)">&#8250;</button>
+      </div>
+
+      <div class="galeria-miniaturas" id="galeria-miniaturas"></div>
+
+    </div>
+  </div>
+
+</section>
+
+  <!-- GALERIA (abre ao clicar) -->
+  <div class="galeria-overlay" id="galeria-overlay" onclick="fecharGaleria(event)">
+    <div class="galeria-modal">
+      <button class="fechar-galeria" onclick="fecharGaleria()">✕</button>
+      <h3 id="galeria-titulo"></h3>
+      <div class="galeria-fotos" id="galeria-fotos"></div>
+    </div>
+  </div>
+
+</section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+  <h2>Contato</h2>
+  <p>Agende seu horário ou me siga nas redes sociais!</p>
+
+  <div class="contato-links">
+
+    <a href="https://wa.me/5511986388342" target="_blank" class="btn-contato whatsapp">
+      <i class="fa-brands fa-whatsapp"></i>
+      WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/bialacerdalash?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="btn-contato instagram">
+      <i class="fa-brands fa-instagram"></i>
+      Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/@bialash3?is_from_webapp=1&sender_device=pc" target="_blank" class="btn-contato tiktok">
+      <i class="fa-brands fa-tiktok"></i>
+      TikTok
+    </a>
+
+    <div class="mapa">
+  <h2>Onde nos encontrar</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.7429315907043!2d-46.5024434!3d-23.5057671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce608968ba63f9%3A0x8b571589f81d65a5!2sR.%20Duarte%20Leopoldo%20e%20Silva%2C%20302%20-%20Jardim%20Gonzaga%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2003756-010!5e0!3m2!1spt-BR!2sbr!4v1778955066201!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+  </div>
+</section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>© Beatriz Lacerda. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
