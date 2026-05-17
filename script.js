@@ -4,12 +4,12 @@ window.scrollTo(0, 0);
 // FOTOS POR CATEGORIA
 const fotos = {
   brasileiro: ['img/brasileiro.jpeg', 'img/brasileiro2.jpeg', 'img/brasileiro3.jpeg'],
-  egipcio:    ['img/egipcio.jpeg', 'img/egipcio1.jpeg', 'img/egipcio3.jpeg'],
-  hibrido:    ['img/hibrido.jpeg',],
-  fox:        ['img/fox.jpeg',],
-  russo:      ['img/russo.jpeg',],
+  egipcio:    ['img/egipcio1.jpeg', 'img/egipcio2.jpeg', 'img/egipcio3.jpeg'],
+  hibrido:    ['img/hibrido.jpeg'],
+  fox:        ['img/fox.jpeg'],
+  russo:      ['img/russo.jpeg'],
   '4d':       ['img/marrom.jpeg'],
-};
+}
 
 const nomes = {
   brasileiro: 'Volume Brasileiro',
@@ -18,6 +18,7 @@ const nomes = {
   fox:        'Volume Fox',
   russo:      'Volume Russo',
   '4d':       'Volume 4D Marrom',
+  maquiagem:  'Maquiagem',
 };
 
 let slideAtual = 0;
@@ -30,7 +31,6 @@ function abrirGaleria(categoria) {
   document.getElementById('galeria-titulo').textContent = nomes[categoria];
   atualizarSlide();
 
-  // miniaturas
   const miniaturas = document.getElementById('galeria-miniaturas');
   miniaturas.innerHTML = '';
   fotosAtivas.forEach((src, i) => {
@@ -47,7 +47,6 @@ function abrirGaleria(categoria) {
 
 function atualizarSlide() {
   document.getElementById('slide-img').src = fotosAtivas[slideAtual];
-
   document.querySelectorAll('.galeria-miniaturas img').forEach((img, i) => {
     img.classList.toggle('ativa', i === slideAtual);
   });
@@ -72,7 +71,7 @@ document.getElementById('galeria-overlay').addEventListener('click', (e) => {
   if (e.target === document.getElementById('galeria-overlay')) fecharGaleria();
 });
 
-// Navega com teclado
+// Teclado
 document.addEventListener('keydown', (e) => {
   if (!document.getElementById('galeria-overlay').classList.contains('ativa')) return;
   if (e.key === 'ArrowRight') mudarSlide(1);
@@ -80,15 +79,16 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') fecharGaleria();
 });
 
-// Swipe no celular
+// Swipe celular
 let touchStartX = 0;
 document.getElementById('galeria-overlay').addEventListener('touchstart', (e) => {
   touchStartX = e.touches[0].clientX;
-});
+}, { passive: true });
+
 document.getElementById('galeria-overlay').addEventListener('touchend', (e) => {
   const diff = touchStartX - e.changedTouches[0].clientX;
   if (Math.abs(diff) > 50) mudarSlide(diff > 0 ? 1 : -1);
-});
+}, { passive: true });
 
 // SCROLL REVEAL
 document.addEventListener('DOMContentLoaded', () => {
@@ -103,7 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ANIMAÇÃO SOBRE
   const sobreObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) entry.target.classList.add('animado');
